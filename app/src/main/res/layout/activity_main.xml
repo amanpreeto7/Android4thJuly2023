@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -18,31 +19,44 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your name" />
+        android:text="Enter your name"
+        android:id="@+id/tvName"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter your name here"
+        android:id="@+id/etName"
         android:inputType="textPersonName|textCapWords"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tvRollNo"
         android:text="Enter your class roll no" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter your rollno"
+        android:id="@+id/etRollNo"
         android:inputType="number"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:id="@+id/tvHeight"
+        android:text="Enter your height"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etHeight"
+        android:inputType="numberDecimal"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/btnValidate"
         android:text="Validate" />
 
 </LinearLayout>
