@@ -8,7 +8,16 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/android"/>
+
     <TextView
+        android:drawableStart="@drawable/ic_edit"
+        android:drawableEnd="@drawable/ic_edit"
+        android:drawableBottom="@drawable/ic_edit"
+        android:drawablePadding="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World welcome"
@@ -58,5 +67,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnValidate"
         android:text="Validate" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRelativeLayout"
+        android:text="Relative Layout" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSnackbar"
+        android:text="Snackbar" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSnackbarButton"
+        android:text="Snackbar with Button" />
 
 </LinearLayout>

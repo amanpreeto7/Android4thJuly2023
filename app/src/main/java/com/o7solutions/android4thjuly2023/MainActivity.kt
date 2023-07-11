@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     //variable declaration
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
     var etHeight : EditText ?= null
     var etRollNo : EditText ?= null
     var btnValidate : Button ?= null
+    var btnRelativeLayout : Button ?= null
+    var btnSnackbar : Button ?= null
+    var btnSnackbarButton : Button ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         etHeight = findViewById(R.id.etHeight)
         etRollNo = findViewById(R.id.etRollNo)
         btnValidate = findViewById(R.id.btnValidate)
+        btnRelativeLayout = findViewById(R.id.btnRelativeLayout)
+        btnSnackbar = findViewById(R.id.btnSnackbar)
+        btnSnackbarButton = findViewById(R.id.btnSnackbarButton)
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -44,6 +51,32 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+        }
+
+        btnRelativeLayout?.setOnClickListener {
+            var intent = Intent(this, RelativeActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSnackbar?.setOnClickListener {
+            Snackbar.make(btnSnackbar!!, "This is snackbar", Snackbar.LENGTH_SHORT).show()
+
+            /*btnSnackbar?.let {
+
+            }*/
+        }
+
+        btnSnackbarButton?.setOnClickListener {
+            Snackbar.make(it,
+                "This is snackbar with button",
+                Snackbar.LENGTH_INDEFINITE)
+                .setAction("Ok", {
+                    Toast.makeText(this, "Started from snackbar",
+                        Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this, RelativeActivity::class.java)
+                    startActivity(intent)
+                })
+                .show()
         }
     }
 
