@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     var btnRelativeLayout : Button ?= null
     var btnSnackbar : Button ?= null
     var btnSnackbarButton : Button ?= null
+    var btnConstraint : Button ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         btnRelativeLayout = findViewById(R.id.btnRelativeLayout)
         btnSnackbar = findViewById(R.id.btnSnackbar)
         btnSnackbarButton = findViewById(R.id.btnSnackbarButton)
+        btnConstraint = findViewById(R.id.btnConstraint)
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -77,6 +79,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
                 .show()
+        }
+
+        btnConstraint?.setOnClickListener{
+            var intent = Intent(this, ConstraintLayout::class.java)
+            startActivity(intent)
         }
     }
 

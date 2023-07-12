@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android4thJuly2023</string>
+    <string name="test">Testing</string>
+    <string name="constraint_layout">Constraint Layout</string>
 </resources>

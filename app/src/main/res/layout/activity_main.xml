@@ -82,5 +82,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnSnackbarButton"
         android:text="Snackbar with Button" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConstraint"
+        android:text="@string/constraint_layout" />
 
 </LinearLayout>
