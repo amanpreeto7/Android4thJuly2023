@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     var btnSnackbar : Button ?= null
     var btnSnackbarButton : Button ?= null
     var btnConstraint : Button ?= null
+    var btnAlertDialog : Button ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         btnSnackbar = findViewById(R.id.btnSnackbar)
         btnSnackbarButton = findViewById(R.id.btnSnackbarButton)
         btnConstraint = findViewById(R.id.btnConstraint)
+        btnAlertDialog = findViewById(R.id.btnAlertDialog)
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -84,6 +87,20 @@ class MainActivity : AppCompatActivity() {
         btnConstraint?.setOnClickListener{
             var intent = Intent(this, ConstraintLayout::class.java)
             startActivity(intent)
+        }
+
+        btnAlertDialog?.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("This is title")
+                .setMessage("This is message")
+                .setCancelable(false)
+                .setPositiveButton("Ok", {_,_->
+                    Toast.makeText(this, "Positive button click", Toast.LENGTH_SHORT).show()
+                })
+                .setNegativeButton("No", {_,_->
+                    etName?.setText("Changed from alert")
+                })
+                .show()
         }
     }
 
