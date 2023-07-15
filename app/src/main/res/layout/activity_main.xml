@@ -96,6 +96,27 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnAlertDialog"
         android:text="@string/alert_dialog" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSimpleListAlertDialog"
+        android:text="@string/simple_list_alert_dialog" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCheckboxListAlertDialog"
+        android:text="@string/checkbox_list_alert_dialog" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSelectedColors"
+        android:textSize="20sp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCustomDialog"
+        android:textSize="20sp"
+        android:text="Custom Dialog"/>
     </LinearLayout>
 
 </ScrollView>

@@ -3,4 +3,6 @@
     <string name="test">Testing</string>
     <string name="constraint_layout">Constraint Layout</string>
     <string name="alert_dialog">Alert Dialog</string>
+    <string name="simple_list_alert_dialog">Simple List Alert Dailog</string>
+    <string name="checkbox_list_alert_dialog">Checkbox list alert Dialog</string>
 </resources>
