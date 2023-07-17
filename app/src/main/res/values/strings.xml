@@ -5,4 +5,6 @@
     <string name="alert_dialog">Alert Dialog</string>
     <string name="simple_list_alert_dialog">Simple List Alert Dailog</string>
     <string name="checkbox_list_alert_dialog">Checkbox list alert Dialog</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

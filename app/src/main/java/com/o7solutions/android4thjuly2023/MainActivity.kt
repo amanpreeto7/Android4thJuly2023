@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
+import com.o7solutions.android4thjuly2023.fragmentpackage.FragmentContainerActivity
 
 class MainActivity : AppCompatActivity() {
     //variable declaration
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     var btnSimpleListAlertDialog : Button ?= null
     var btnCheckboxListAlertDialog : Button ?= null
     var btnCustomDialog : Button ?= null
+    var btnViewBindingActivity : Button ?= null
+    var btnFragmentContainerActivity : Button ?= null
     var tvSelectedColors : TextView ?= null
     var simpleList = arrayOf("Black", "Blue", "Red", "Green")
     var booleanArray = booleanArrayOf(false, false,false, false)
@@ -48,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         btnCheckboxListAlertDialog = findViewById(R.id.btnCheckboxListAlertDialog)
         tvSelectedColors = findViewById(R.id.tvSelectedColors)
         btnCustomDialog = findViewById(R.id.btnCustomDialog)
+        btnViewBindingActivity = findViewById(R.id.btnViewBindingActivity)
+        btnFragmentContainerActivity = findViewById(R.id.btnFragmentContainerActivity)
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -158,10 +163,18 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     btnCustomDialog?.setText(etname.text.toString())
                     dialog.dismiss()
-
                 }
             }
+        }
 
+        btnViewBindingActivity?.setOnClickListener {
+            var intent = Intent(this, ViewBindingActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnFragmentContainerActivity?.setOnClickListener {
+            var intent = Intent(this, FragmentContainerActivity::class.java)
+            startActivity(intent)
         }
 
 
