@@ -23,9 +23,11 @@ class FirstFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var fragmentContainerActivity: FragmentContainerActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        fragmentContainerActivity = activity as FragmentContainerActivity
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -52,7 +54,7 @@ class FirstFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(requireContext(), "on resume", Toast.LENGTH_SHORT).show()
+        Toast.makeText(fragmentContainerActivity, "on resume", Toast.LENGTH_SHORT).show()
     }
 
     companion object {

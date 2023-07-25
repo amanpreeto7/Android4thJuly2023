@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     var btnViewBindingActivity : Button ?= null
     var btnFragmentContainerActivity : Button ?= null
     var tvSelectedColors : TextView ?= null
+    var btnListView : Button ?= null
     var simpleList = arrayOf("Black", "Blue", "Red", "Green")
     var booleanArray = booleanArrayOf(false, false,false, false)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         btnCustomDialog = findViewById(R.id.btnCustomDialog)
         btnViewBindingActivity = findViewById(R.id.btnViewBindingActivity)
         btnFragmentContainerActivity = findViewById(R.id.btnFragmentContainerActivity)
+        btnListView = findViewById(R.id.btnListView)
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -174,6 +176,11 @@ class MainActivity : AppCompatActivity() {
 
         btnFragmentContainerActivity?.setOnClickListener {
             var intent = Intent(this, FragmentContainerActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnListView?.setOnClickListener {
+            var intent = Intent(this, ListViewActivity::class.java)
             startActivity(intent)
         }
 
