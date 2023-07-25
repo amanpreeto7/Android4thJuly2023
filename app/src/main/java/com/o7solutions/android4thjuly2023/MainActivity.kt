@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.o7solutions.android4thjuly2023.fragmentpackage.FragmentContainerActivity
@@ -32,11 +30,20 @@ class MainActivity : AppCompatActivity() {
     var btnFragmentContainerActivity : Button ?= null
     var tvSelectedColors : TextView ?= null
     var btnListView : Button ?= null
+    lateinit var staticSpinner: Spinner
+    lateinit var dynamicSpinner: Spinner
+    lateinit var dynamicAdapter : ArrayAdapter<StudentModel>
+    var spinnerList = arrayListOf<StudentModel>()
+    lateinit var staticSpinnerAdapter  :ArrayAdapter<String>
     var simpleList = arrayOf("Black", "Blue", "Red", "Green")
     var booleanArray = booleanArrayOf(false, false,false, false)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        staticSpinner = findViewById(R.id.staticSpinner)
+        dynamicSpinner = findViewById(R.id.DynamicSpinner)
+
 
         //initialization
         etName = findViewById(R.id.etName)
@@ -169,6 +176,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         btnViewBindingActivity?.setOnClickListener {
             var intent = Intent(this, ViewBindingActivity::class.java)
             startActivity(intent)
@@ -183,6 +191,26 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, ListViewActivity::class.java)
             startActivity(intent)
         }
+
+        staticSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,simpleList)
+        staticSpinner.adapter = staticSpinnerAdapter
+
+        spinnerList.add(StudentModel("Testing",1))
+        spinnerList.add(StudentModel("Test",2))
+        spinnerList.add(StudentModel("O7 services",3))
+        dynamicAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,spinnerList)
+        dynamicSpinner.adapter = dynamicAdapter
+
+        dynamicSpinner.onItemSelectedListener = object : OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                System.out.println("selectedItem ${spinnerList.get(position)}")
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
 
 
     }

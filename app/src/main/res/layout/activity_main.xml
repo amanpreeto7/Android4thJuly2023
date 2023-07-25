@@ -135,6 +135,22 @@
         android:id="@+id/btnListView"
         android:textSize="20sp"
         android:text="ListView"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/staticSpinner"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dynamic Spinner"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DynamicSpinner"/>
+
     </LinearLayout>
 
 </ScrollView>
