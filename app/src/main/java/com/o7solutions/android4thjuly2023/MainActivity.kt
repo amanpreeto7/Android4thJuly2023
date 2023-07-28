@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.o7solutions.android4thjuly2023.fragmentpackage.FragmentContainerActivity
@@ -37,14 +39,26 @@ class MainActivity : AppCompatActivity() {
     lateinit var staticSpinnerAdapter  :ArrayAdapter<String>
     var simpleList = arrayOf("Black", "Blue", "Red", "Green")
     var booleanArray = booleanArrayOf(false, false,false, false)
+    var getStoragePermission : Button?= null
+    var imageView : ImageView?= null
+
+    var getPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
+        if(it){
+            Toast.makeText(this, "Permission granted ", Toast.LENGTH_SHORT).show()
+            getImage.launch("image/*")
+        }else{
+            Toast.makeText(this, "Permission denied ", Toast.LENGTH_SHORT).show()
+
+        }
+    }
+
+    var getImage = registerForActivityResult(ActivityResultContracts.GetContent()){
+        System.out.println("uri $it")
+        imageView?.setImageURI(it)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        staticSpinner = findViewById(R.id.staticSpinner)
-        dynamicSpinner = findViewById(R.id.DynamicSpinner)
-
-
         //initialization
         etName = findViewById(R.id.etName)
         etHeight = findViewById(R.id.etHeight)
@@ -62,6 +76,12 @@ class MainActivity : AppCompatActivity() {
         btnViewBindingActivity = findViewById(R.id.btnViewBindingActivity)
         btnFragmentContainerActivity = findViewById(R.id.btnFragmentContainerActivity)
         btnListView = findViewById(R.id.btnListView)
+        imageView = findViewById(R.id.imageView)
+
+        staticSpinner = findViewById(R.id.staticSpinner)
+        dynamicSpinner = findViewById(R.id.DynamicSpinner)
+        getStoragePermission = findViewById(R.id.getStoragePermission)
+
         //operation perform
 
        // btnValidate?.setOnClickListener(View.OnClickListener {  })
@@ -207,8 +227,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
+        }
+
+        getStoragePermission?.setOnClickListener {
+            getPermission.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
         }
 
 
